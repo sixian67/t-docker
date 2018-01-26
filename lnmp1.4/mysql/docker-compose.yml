@@ -1,0 +1,13 @@
+version: '3'
+services:
+  mysql5.5:
+    image: mysql:5.5
+    ports:
+     - "3306:3306"
+    volumes:
+     - /Users/QMSU/Dockerfile/mysql5.5/data:/var/lib/mysql
+     - /Users/QMSU/Dockerfile/mysql5.5/my.cnf:/etc/mysql/my.cnf
+     - /Users/QMSU/Dockerfile/mysql5.5/logs:/var/log/mysql/
+    container_name: mysql5.5
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456

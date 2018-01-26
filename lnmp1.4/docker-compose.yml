@@ -1,0 +1,26 @@
+version: '3'
+services:
+  lnmp1.4:
+    image: registry.cn-hangzhou.aliyuncs.com/taoke/lnmp:1.4
+    ports:
+      - "33066:3306"
+      - "6010:80"
+    volumes:
+      #root
+      - ~/Sites:/home/wwwroot/default
+      #mysql
+      - ~/Dockerfile/lnmp1.4/mysql/data:/usr/local/mysql/var/
+      - ~/Dockerfile/lnmp1.4/mysql/my.cnf:/etc/my.cnf
+      #php
+      - ~/Dockerfile/lnmp1.4/php/php.ini:/usr/local/php/etc/php.ini
+      - ~/Dockerfile/lnmp1.4/php/php-fpm.conf:/usr/local/php/etc/php-fpm.conf
+      - ~/Dockerfile/lnmp1.4/php/php-fpm.conf.default:/usr/local/php/etc/php-fpm.conf.default
+      - ~/Dockerfile/lnmp1.4/php/pear.conf:/usr/local/php/etc/pear.conf
+      - ~/Dockerfile/lnmp1.4/php/ext:/usr/local/php/lib/php/extensions/no-debug-non-zts-20131226
+      #nginx
+      - ~/Dockerfile/lnmp1.4/wwwlogs:/home/wwwlogs/
+      - ~/Dockerfile/lnmp1.4/nginx/nginx.conf:/usr/local/nginx/conf/nginx.conf
+      - ~/Dockerfile/lnmp1.4/nginx/fastcgi_params:/usr/local/nginx/conf/fastcgi_params
+      - ~/Dockerfile/lnmp1.4/nginx/vhost:/usr/local/nginx/conf/vhost
+    container_name: lnmp1.4
+    # restart : always

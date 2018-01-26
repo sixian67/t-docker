@@ -1,0 +1,9 @@
+.vscode/
+
+/gulp/package.json
+
+/lnmp1.4/mysql/data
+/lnmp1.4/wwwlogs/
+
+/mongo/
+

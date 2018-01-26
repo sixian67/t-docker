@@ -1,0 +1,7 @@
+version: '3'
+services:
+  gulp:
+    image: registry.cn-hangzhou.aliyuncs.com/taoke/gulp:1.0
+    volumes:
+     - ~/Sites:/home/app
+    container_name: gulp

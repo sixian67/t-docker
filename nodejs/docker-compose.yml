@@ -1,0 +1,7 @@
+version: '3'
+services:
+  node:
+    image: node:6.12.3
+    volumes:
+     - ~/Sites:/home/app
+    container_name: node

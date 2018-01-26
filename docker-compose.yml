@@ -1,0 +1,18 @@
+version: '3'
+services:
+  lnmp:
+    image: taoke/lnmp:latest
+    ports:
+     - "6010:80"
+     - "33067:3306"
+    volumes:
+     - /Users/QMSU/Sites:/home/wwwroot/default
+     - /Users/QMSU/Dockerfile/lnmp2/nginx/nginx.conf:/usr/local/nginx/conf/nginx.conf
+     - /Users/QMSU/Dockerfile/lnmp2/nginx/fastcgi.conf:/usr/local/nginx/conf/fastcgi.conf
+     - /Users/QMSU/Dockerfile/lnmp2/nginx/vhost:/usr/local/nginx/conf/vhost
+     - /Users/QMSU/Dockerfile/lnmp2/php/php.ini:/usr/local/php/etc/php.ini
+     - /Users/QMSU/Dockerfile/lnmp2/php/ext:/usr/local/php/lib/php/extensions/no-debug-non-zts-20131226
+     - /Users/QMSU/Dockerfile/lnmp2/wwwlogs:/home/wwwlogs
+    # command: /bin/bash lnmp start
+    container_name: lnmp
+
